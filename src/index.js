@@ -29,14 +29,15 @@ const games = [
 
 const json = JSON.stringify(games);
 
-const app = http.createServer((req, res) => {
+const app = http.createServer((request, response) => {
   /**
    * "Content-Type":
    * The Content-Type representation header is used to indicate the original media type.
    * defines the returned website content for is very important to define the content before of whatever error, then    application/json is the "Content-Type" for return json content.
    */
-  res.writeHead(200, { "Content-Type": "application/json" });
-  res.end(json);
+  response.writeHead(200, { "Content-Type": "application/json" });
+  //method singnals that no there are more code in the chucnk
+  response.end(json);
 });
 
 const PORT = 3000;
